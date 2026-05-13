@@ -69,7 +69,7 @@ export default function Contact() {
               İletişim Bilgileri
             </h3>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-gray-400 text-sm mb-10">
-              <span>+90 (212) 555 00 00</span>
+              <span>+90 (551) 966 22 91</span>
               <span>info@mostsolution.com</span>
             </div>
 

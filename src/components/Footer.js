@@ -25,7 +25,7 @@ export default function Footer() {
             <div className="text-gray-500 text-sm space-y-1">
               <p>www.mostsolution.com</p>
               <p>info@mostsolution.com</p>
-              <p>+90 (212) 555 00 00</p>
+              <p>+90 (551) 966 22 91</p>
             </div>
           </div>
 
@@ -62,9 +62,9 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-gray-600 text-xs">
               <p>
-                İs. H.Mustafa EDFM Taksercioer Metus, D. Cadde No: 40/A
+                75. Yıl Mahallesi / Emko Sanayi Sitesi / Edirne Sokak /No:28
               </p>
-              <p>Gaziosmanpaşa / Sultangazir</p>
+              <p>Odunpazarı / Eskişehir</p>
             </div>
             <div className="flex gap-6 text-gray-600 text-xs">
               <a
