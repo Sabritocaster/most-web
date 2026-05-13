@@ -50,7 +50,7 @@ export default function VehicleAnalysis() {
             Araç Analizi
           </h2>
           <p className="text-gray-500 max-w-md leading-relaxed text-base">
-            Aracınızın fabrika çıkış verileriyle Most Bilişim'in sunduğu optimize
+            Aracınızın fabrika çıkış verileriyle Most Bilişim&apos;in sunduğu optimize
             değerleri yan yana inceleyin. Güç, artışını ve verimlilik farkını teknik
             tabloda analiz edin.
           </p>

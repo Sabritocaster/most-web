@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Contact() {
   const sectionRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -44,10 +45,55 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Form submission logic
-    alert("Formunuz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/mostsolutions26@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: formData.subject ? `MOST İletişim Formu: ${formData.subject}` : "MOST Web Sitesi Yeni İletişim Formu",
+          İsim: formData.name,
+          Soyisim: formData.surname,
+          "E-posta": formData.email || "Belirtilmedi",
+          Telefon: formData.phone,
+          "Araç Markası": formData.brand || "Belirtilmedi",
+          "Araç Üretim Yılı": formData.year || "Belirtilmedi",
+          Konu: formData.subject || "Belirtilmedi",
+          Mesaj: formData.message,
+          _template: "table",
+        }),
+      });
+
+      if (response.ok) {
+        alert("Formunuz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.");
+        setFormData({
+          name: "",
+          surname: "",
+          email: "",
+          phone: "",
+          brand: "",
+          model: "",
+          year: "",
+          engineType: "",
+          subject: "",
+          message: "",
+          kvkk: false,
+        });
+      } else {
+        alert("Form gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Bağlantı hatası oluştu. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -248,9 +294,14 @@ export default function Contact() {
               <button
                 type="submit"
                 id="submit-btn"
-                className="w-full sm:w-auto px-8 py-3.5 bg-[#3366FF] text-white text-sm font-semibold rounded-lg hover:bg-[#2952CC] transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                disabled={isSubmitting}
+                className={`w-full sm:w-auto px-8 py-3.5 bg-[#3366FF] text-white text-sm font-semibold rounded-lg transition-all duration-300 ${
+                  isSubmitting
+                    ? "opacity-75 cursor-not-allowed"
+                    : "hover:bg-[#2952CC] hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                }`}
               >
-                Mesaj Gönder
+                {isSubmitting ? "Gönderiliyor..." : "Mesaj Gönder"}
               </button>
             </form>
           </div>
