@@ -75,6 +75,33 @@ const vehicleDb = {
   }
 };
 
+function AnimatedCounter({ from, to, duration = 800, prefix = "", suffix = "" }) {
+  const [count, setCount] = useState(from);
+
+  useEffect(() => {
+    let startTimestamp = null;
+    let animId;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeProgress = progress * (2 - progress); // Ease out quad
+      const currentCount = Math.round(from + easeProgress * (to - from));
+      setCount(currentCount);
+      if (progress < 1) {
+        animId = window.requestAnimationFrame(step);
+      }
+    };
+    animId = window.requestAnimationFrame(step);
+    return () => {
+      if (animId) {
+        window.cancelAnimationFrame(animId);
+      }
+    };
+  }, [from, to, duration]);
+
+  return <>{prefix}{count}{suffix}</>;
+}
+
 export default function VehicleAnalysis() {
   
   // Set default selection to BMW 3 Series F30 320d for a beautiful initial load
@@ -261,17 +288,23 @@ export default function VehicleAnalysis() {
                       <tr className="hover:bg-grey-light/50 transition-colors">
                         <td className="py-5 px-6 font-bold text-black text-sm">Güç (HP)</td>
                         <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalHp} HP</td>
-                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">{activeSpecs.optimizedHp} HP</td>
+                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
+                          <AnimatedCounter key={`hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={activeSpecs.originalHp} to={activeSpecs.optimizedHp} suffix=" HP" />
+                        </td>
                         <td className="py-5 px-6 font-bold text-green-600 text-sm">
-                          +{activeSpecs.optimizedHp - activeSpecs.originalHp} HP (+{Math.round(((activeSpecs.optimizedHp - activeSpecs.originalHp) / activeSpecs.originalHp) * 100)}%)
+                          <AnimatedCounter key={`diff-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={activeSpecs.optimizedHp - activeSpecs.originalHp} prefix="+" suffix=" HP " />
+                          (<AnimatedCounter key={`pct-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={Math.round(((activeSpecs.optimizedHp - activeSpecs.originalHp) / activeSpecs.originalHp) * 100)} prefix="+" suffix="%" />)
                         </td>
                       </tr>
                       <tr className="hover:bg-grey-light/50 transition-colors">
                         <td className="py-5 px-6 font-bold text-black text-sm">Tork (Nm)</td>
                         <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalTorque} Nm</td>
-                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">{activeSpecs.optimizedTorque} Nm</td>
+                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
+                          <AnimatedCounter key={`tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={activeSpecs.originalTorque} to={activeSpecs.optimizedTorque} suffix=" Nm" />
+                        </td>
                         <td className="py-5 px-6 font-bold text-green-600 text-sm">
-                          +{activeSpecs.optimizedTorque - activeSpecs.originalTorque} Nm (+{Math.round(((activeSpecs.optimizedTorque - activeSpecs.originalTorque) / activeSpecs.originalTorque) * 100)}%)
+                          <AnimatedCounter key={`diff-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={activeSpecs.optimizedTorque - activeSpecs.originalTorque} prefix="+" suffix=" Nm " />
+                          (<AnimatedCounter key={`pct-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={Math.round(((activeSpecs.optimizedTorque - activeSpecs.originalTorque) / activeSpecs.originalTorque) * 100)} prefix="+" suffix="%" />)
                         </td>
                       </tr>
                       <tr className="hover:bg-grey-light/50 transition-colors">
