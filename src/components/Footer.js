@@ -12,10 +12,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#231F20] text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-2.5 sm:py-16">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-5 md:gap-12">
           {/* Logo & Info */}
-          <div className="flex flex-col sm:flex-row items-start gap-8 md:gap-16">
+          <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-8 md:gap-16">
             <a
               href="#hero"
               onClick={(e) => scrollToSection(e, "hero")}
@@ -82,9 +82,9 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="bg-black/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div className="text-grey-dark text-xs font-semibold text-center sm:text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2.5 pb-8 sm:py-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+            <div className="text-grey-dark text-xs font-semibold text-left">
               <p>75. Yıl Mahallesi / Emko Sanayi Sitesi / Edirne Sokak / No:28</p>
               <p>Odunpazarı / Eskişehir</p>
             </div>
@@ -107,7 +107,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-grey-dark text-xs font-semibold">
-              © 2026 most. Bütün Hakları Saklıdır.
+              © 2026 Most. Bütün Hakları Saklıdır.
             </p>
           </div>
         </div>
