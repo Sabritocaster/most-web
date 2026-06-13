@@ -102,7 +102,7 @@ export default function Navbar() {
             <a
               href="#hizmetlerimiz"
               onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
-              className={`text-black text-3xl font-extrabold transition-transform duration-500 delay-100 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+              className={`text-black text-3xl font-extrabold transition-transform duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
                 mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
@@ -111,7 +111,7 @@ export default function Navbar() {
             <a
               href="#arac-analizi"
               onClick={(e) => scrollToSection(e, "arac-analizi")}
-              className={`text-black text-3xl font-extrabold transition-transform duration-500 delay-200 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+              className={`text-black text-3xl font-extrabold transition-transform duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
                 mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
@@ -120,7 +120,7 @@ export default function Navbar() {
             <a
               href="#iletisim"
               onClick={(e) => scrollToSection(e, "iletisim")}
-              className={`text-black text-3xl font-extrabold transition-transform duration-500 delay-300 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+              className={`text-black text-3xl font-extrabold transition-transform duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
                 mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
