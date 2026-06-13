@@ -23,12 +23,12 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-0 lg:pt-20">
           {/* Left Content */}
           <div className="animate-fade-in-left order-2 lg:order-1">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black leading-[1.2] mb-6 tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black leading-[1.2] mb-10 tracking-tight">
               Aracınız için
               <br />
               <span className="text-[#001AFF]">Akıllı Çözümler</span>
             </h1>
-            <p className="text-base sm:text-lg text-black mb-8 max-w-lg leading-relaxed">
+            <p className="text-base sm:text-lg text-black mb-12 max-w-lg leading-relaxed">
               Profesyonel chip yazılım çözümleri, DPF temizliği ve enjektör bakımı ile aracınızın performansını, verimliliğini ve motor ömrünü en üst seviyeye çıkarıyoruz.
             </p>
             <a
