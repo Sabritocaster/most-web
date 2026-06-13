@@ -1,43 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-
-const brands = [
-  "BMW", "Mercedes", "Audi", "Volkswagen", "Toyota", "Honda", 
-  "Ford", "Renault", "Fiat", "Hyundai", "Kia", "Peugeot",
-  "Opel", "Volvo", "Nissan", "Skoda", "Seat", "Citroen",
-];
-
-export default function VehicleAnalysis() {
-  const sectionRef = useRef(null);
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [selectedModel, setSelectedModel] = useState("");
-  const [selectedYear, setSelectedYear] = useState("");
-  const [selectedEngine, setSelectedEngine] = useState("");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("scroll-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".scroll-hidden");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const years = [];
-  for (let y = 2026; y >= 2000; y--) years.push(y.toString());
-=======
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -113,6 +75,33 @@ const vehicleDb = {
   }
 };
 
+function AnimatedCounter({ from, to, duration = 800, prefix = "", suffix = "" }) {
+  const [count, setCount] = useState(from);
+
+  useEffect(() => {
+    let startTimestamp = null;
+    let animId;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeProgress = progress * (2 - progress); // Ease out quad
+      const currentCount = Math.round(from + easeProgress * (to - from));
+      setCount(currentCount);
+      if (progress < 1) {
+        animId = window.requestAnimationFrame(step);
+      }
+    };
+    animId = window.requestAnimationFrame(step);
+    return () => {
+      if (animId) {
+        window.cancelAnimationFrame(animId);
+      }
+    };
+  }, [from, to, duration]);
+
+  return <>{prefix}{count}{suffix}</>;
+}
+
 export default function VehicleAnalysis() {
   
   // Set default selection to BMW 3 Series F30 320d for a beautiful initial load
@@ -161,127 +150,32 @@ export default function VehicleAnalysis() {
     }
   };
 
+  const getCarImage = () => {
+    switch (selectedBrand) {
+      case "BMW":
+        return "/car-bmw.png";
+      case "Volkswagen":
+        return "/car-vw.png";
+      case "Audi":
+        return "/car-audi.png";
+      case "Renault":
+        return "/car-renault.png";
+      case "Fiat":
+        return "/car-fiat.png";
+      default:
+        return "/car-suv.png";
+    }
+  };
+
   // Generate lists based on current state
   const brandList = Object.keys(vehicleDb);
   const modelList = selectedBrand ? Object.keys(vehicleDb[selectedBrand] || {}) : [];
   const seriesList = (selectedBrand && selectedModel) ? Object.keys(vehicleDb[selectedBrand][selectedModel] || {}) : [];
   const engineList = (selectedBrand && selectedModel && selectedSeries) ? Object.keys(vehicleDb[selectedBrand][selectedModel][selectedSeries] || {}) : [];
->>>>>>> master
 
   return (
     <section
       id="arac-analizi"
-<<<<<<< HEAD
-      ref={sectionRef}
-      className="relative bg-white py-24 sm:py-32"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-12 scroll-hidden">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight max-w-md">
-            Araç Analizi
-          </h2>
-          <p className="text-gray-500 max-w-md leading-relaxed text-base">
-            Aracınızın fabrika çıkış verileriyle Most Bilişim&apos;in sunduğu optimize
-            değerleri yan yana inceleyin. Güç, artışını ve verimlilik farkını teknik
-            tabloda analiz edin.
-          </p>
-        </div>
-
-        {/* Filter Bar & Car Image */}
-        <div className="scroll-hidden bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100">
-          {/* Filters */}
-          <div className="flex flex-wrap gap-3 mb-8 items-center">
-            <div className="relative">
-              <select
-                id="brand-select"
-                value={selectedBrand}
-                onChange={(e) => setSelectedBrand(e.target.value)}
-                className="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm text-gray-700 font-medium cursor-pointer hover:border-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#3366FF]"
-              >
-                <option value="">Marka Seçiniz</option>
-                {brands.map((b) => (
-                  <option key={b} value={b}>
-                    {b}
-                  </option>
-                ))}
-              </select>
-              <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-
-            <div className="relative">
-              <select
-                id="model-select"
-                value={selectedModel}
-                onChange={(e) => setSelectedModel(e.target.value)}
-                className="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm text-gray-700 font-medium cursor-pointer hover:border-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#3366FF]"
-              >
-                <option value="">Model Seçiniz</option>
-              </select>
-              <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-
-            <div className="relative">
-              <select
-                id="year-select"
-                value={selectedYear}
-                onChange={(e) => setSelectedYear(e.target.value)}
-                className="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm text-gray-700 font-medium cursor-pointer hover:border-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#3366FF]"
-              >
-                <option value="">Seri Seçiniz</option>
-                {years.map((y) => (
-                  <option key={y} value={y}>
-                    {y}
-                  </option>
-                ))}
-              </select>
-              <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-
-            <div className="relative">
-              <select
-                id="engine-select"
-                value={selectedEngine}
-                onChange={(e) => setSelectedEngine(e.target.value)}
-                className="appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-sm text-gray-700 font-medium cursor-pointer hover:border-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#3366FF]"
-              >
-                <option value="">Motor Tipi Seçiniz</option>
-              </select>
-              <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-            </div>
-
-            <button
-              id="search-btn"
-              className="px-6 py-2.5 bg-[#3366FF] text-white text-sm font-semibold rounded-lg hover:bg-[#2952CC] transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:-translate-y-0.5"
-            >
-              Sonuçları Göster
-            </button>
-          </div>
-
-          {/* Car Image */}
-          <div className="flex justify-center mb-8">
-            <div className="relative w-full max-w-lg">
-              <Image
-                src="/car-suv.png"
-                alt="Araç Analizi"
-                width={600}
-                height={400}
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Result Grid Placeholder */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl border border-gray-200 aspect-[4/3] flex items-center justify-center hover:border-[#3366FF]/30 hover:shadow-md transition-all duration-300"
-              >
-                <span className="text-gray-300 text-sm">—</span>
-              </div>
-            ))}
-=======
       className="relative bg-white pb-32 sm:pb-40 pt-28 sm:pt-36"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -296,7 +190,7 @@ export default function VehicleAnalysis() {
         </div>
 
         {/* Filter Bar & Interactive Display */}
-        <div className="bg-grey-medium rounded-3xl p-6 sm:p-10 border border-grey-medium shadow-xl shadow-grey-medium/50">
+        <div className="bg-grey-medium rounded-3xl p-6 sm:p-10 border border-grey-medium">
           {/* Filters Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10 items-end">
             <div className="flex flex-col gap-2">
@@ -385,14 +279,12 @@ export default function VehicleAnalysis() {
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-md">
                 <Image
-                  src="/car-suv.png"
+                  src={getCarImage()}
                   alt="Araç Görseli"
                   width={500}
                   height={330}
                   className="w-full h-auto object-contain p-8"
                 />
-                {/* Ground reflection shadow */}
-                <div className="w-4/5 h-6 bg-black/10 rounded-full blur-xl mx-auto -mt-4" />
               </div>
             </div>
 
@@ -413,17 +305,23 @@ export default function VehicleAnalysis() {
                       <tr className="hover:bg-grey-light/50 transition-colors">
                         <td className="py-5 px-6 font-bold text-black text-sm">Güç (HP)</td>
                         <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalHp} HP</td>
-                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">{activeSpecs.optimizedHp} HP</td>
+                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
+                          <AnimatedCounter key={`hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={activeSpecs.originalHp} to={activeSpecs.optimizedHp} suffix=" HP" />
+                        </td>
                         <td className="py-5 px-6 font-bold text-green-600 text-sm">
-                          +{activeSpecs.optimizedHp - activeSpecs.originalHp} HP (+{Math.round(((activeSpecs.optimizedHp - activeSpecs.originalHp) / activeSpecs.originalHp) * 100)}%)
+                          <AnimatedCounter key={`diff-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={activeSpecs.optimizedHp - activeSpecs.originalHp} prefix="+" suffix=" HP " />
+                          (<AnimatedCounter key={`pct-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={Math.round(((activeSpecs.optimizedHp - activeSpecs.originalHp) / activeSpecs.originalHp) * 100)} prefix="+" suffix="%" />)
                         </td>
                       </tr>
                       <tr className="hover:bg-grey-light/50 transition-colors">
                         <td className="py-5 px-6 font-bold text-black text-sm">Tork (Nm)</td>
                         <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalTorque} Nm</td>
-                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">{activeSpecs.optimizedTorque} Nm</td>
+                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
+                          <AnimatedCounter key={`tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={activeSpecs.originalTorque} to={activeSpecs.optimizedTorque} suffix=" Nm" />
+                        </td>
                         <td className="py-5 px-6 font-bold text-green-600 text-sm">
-                          +{activeSpecs.optimizedTorque - activeSpecs.originalTorque} Nm (+{Math.round(((activeSpecs.optimizedTorque - activeSpecs.originalTorque) / activeSpecs.originalTorque) * 100)}%)
+                          <AnimatedCounter key={`diff-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={activeSpecs.optimizedTorque - activeSpecs.originalTorque} prefix="+" suffix=" Nm " />
+                          (<AnimatedCounter key={`pct-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={Math.round(((activeSpecs.optimizedTorque - activeSpecs.originalTorque) / activeSpecs.originalTorque) * 100)} prefix="+" suffix="%" />)
                         </td>
                       </tr>
                       <tr className="hover:bg-grey-light/50 transition-colors">
@@ -447,7 +345,6 @@ export default function VehicleAnalysis() {
                 </div>
               )}
             </div>
->>>>>>> master
           </div>
         </div>
       </div>
