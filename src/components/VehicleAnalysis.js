@@ -184,7 +184,7 @@ export default function VehicleAnalysis() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black leading-tight max-w-md tracking-tight">
             Araç Analizi
           </h2>
-          <p className="text-black text-body-lg max-w-lg">
+          <p className="text-black text-body-lg max-w-lg font-medium lg:font-normal">
             Aracınızın fabrika çıkış verileriyle Most Stage 1 yazılımının sunduğu optimize değerleri yan yana inceleyin. Güç artışını ve verimlilik farkını teknik verilerle analiz edin.
           </p>
         </div>
@@ -292,48 +292,50 @@ export default function VehicleAnalysis() {
             <div className="lg:col-span-7">
               {activeSpecs ? (
                 <div className="bg-white rounded-2xl border border-grey-light overflow-hidden">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="bg-grey-light/60 border-b border-grey-medium/50">
-                        <th className="py-4 px-6 text-xs font-bold text-grey-dark">Parametre</th>
-                        <th className="py-4 px-6 text-xs font-bold text-grey-dark">Orijinal</th>
-                        <th className="py-4 px-6 text-xs font-bold text-grey-dark text-[#001AFF]">most. Yazılım</th>
-                        <th className="py-4 px-6 text-xs font-bold text-grey-dark text-green-600">Değişim</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-grey-light">
-                      <tr className="hover:bg-grey-light/50 transition-colors">
-                        <td className="py-5 px-6 font-bold text-black text-sm">Güç (HP)</td>
-                        <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalHp} HP</td>
-                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
-                          <AnimatedCounter key={`hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={activeSpecs.originalHp} to={activeSpecs.optimizedHp} suffix=" HP" />
-                        </td>
-                        <td className="py-5 px-6 font-bold text-green-600 text-sm">
-                          <AnimatedCounter key={`diff-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={activeSpecs.optimizedHp - activeSpecs.originalHp} prefix="+" suffix=" HP " />
-                          (<AnimatedCounter key={`pct-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={Math.round(((activeSpecs.optimizedHp - activeSpecs.originalHp) / activeSpecs.originalHp) * 100)} prefix="+" suffix="%" />)
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-grey-light/50 transition-colors">
-                        <td className="py-5 px-6 font-bold text-black text-sm">Tork (Nm)</td>
-                        <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalTorque} Nm</td>
-                        <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
-                          <AnimatedCounter key={`tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={activeSpecs.originalTorque} to={activeSpecs.optimizedTorque} suffix=" Nm" />
-                        </td>
-                        <td className="py-5 px-6 font-bold text-green-600 text-sm">
-                          <AnimatedCounter key={`diff-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={activeSpecs.optimizedTorque - activeSpecs.originalTorque} prefix="+" suffix=" Nm " />
-                          (<AnimatedCounter key={`pct-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={Math.round(((activeSpecs.optimizedTorque - activeSpecs.originalTorque) / activeSpecs.originalTorque) * 100)} prefix="+" suffix="%" />)
-                        </td>
-                      </tr>
-                      <tr className="hover:bg-grey-light/50 transition-colors">
-                        <td className="py-5 px-6 font-bold text-black text-sm">Yakıt Tüketimi</td>
-                        <td className="py-5 px-6 font-semibold text-black text-xs sm:text-sm">Fabrika Değeri</td>
-                        <td className="py-5 px-6 font-bold text-[#001AFF] text-xs sm:text-sm">Optimize Edildi</td>
-                        <td className="py-5 px-6 font-bold text-green-600 text-xs sm:text-sm">-{activeSpecs.saving}*</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left border-collapse min-w-[500px] whitespace-nowrap">
+                      <thead>
+                        <tr className="bg-grey-light/60 border-b border-grey-medium/50">
+                          <th className="py-4 px-6 text-xs font-bold text-grey-dark">Parametre</th>
+                          <th className="py-4 px-6 text-xs font-bold text-grey-dark">Orijinal</th>
+                          <th className="py-4 px-6 text-xs font-bold text-grey-dark text-[#001AFF]">Most Stage 1</th>
+                          <th className="py-4 px-6 text-xs font-bold text-grey-dark text-green-600">Değişim</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-grey-light">
+                        <tr className="hover:bg-grey-light/50 transition-colors">
+                          <td className="py-5 px-6 font-bold text-black text-sm">Güç (HP)</td>
+                          <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalHp} HP</td>
+                          <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
+                            <AnimatedCounter key={`hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={activeSpecs.originalHp} to={activeSpecs.optimizedHp} suffix=" HP" />
+                          </td>
+                          <td className="py-5 px-6 font-bold text-green-600 text-sm">
+                            <AnimatedCounter key={`diff-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={activeSpecs.optimizedHp - activeSpecs.originalHp} prefix="+" suffix=" HP " />
+                            (<AnimatedCounter key={`pct-hp-${activeSpecs.originalHp}-${activeSpecs.optimizedHp}`} from={0} to={Math.round(((activeSpecs.optimizedHp - activeSpecs.originalHp) / activeSpecs.originalHp) * 100)} prefix="+" suffix="%" />)
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-grey-light/50 transition-colors">
+                          <td className="py-5 px-6 font-bold text-black text-sm">Tork (Nm)</td>
+                          <td className="py-5 px-6 font-semibold text-black text-sm">{activeSpecs.originalTorque} Nm</td>
+                          <td className="py-5 px-6 font-bold text-[#001AFF] text-sm">
+                            <AnimatedCounter key={`tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={activeSpecs.originalTorque} to={activeSpecs.optimizedTorque} suffix=" Nm" />
+                          </td>
+                          <td className="py-5 px-6 font-bold text-green-600 text-sm">
+                            <AnimatedCounter key={`diff-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={activeSpecs.optimizedTorque - activeSpecs.originalTorque} prefix="+" suffix=" Nm " />
+                            (<AnimatedCounter key={`pct-tq-${activeSpecs.originalTorque}-${activeSpecs.optimizedTorque}`} from={0} to={Math.round(((activeSpecs.optimizedTorque - activeSpecs.originalTorque) / activeSpecs.originalTorque) * 100)} prefix="+" suffix="%" />)
+                          </td>
+                        </tr>
+                        <tr className="hover:bg-grey-light/50 transition-colors">
+                          <td className="py-5 px-6 font-bold text-black text-sm">Yakıt Tüketimi</td>
+                          <td className="py-5 px-6 font-semibold text-black text-xs sm:text-sm">Fabrika Değeri</td>
+                          <td className="py-5 px-6 font-bold text-[#001AFF] text-xs sm:text-sm">Optimize Edildi</td>
+                          <td className="py-5 px-6 font-bold text-green-600 text-xs sm:text-sm">-{activeSpecs.saving}*</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                   <div className="py-3 px-6 bg-grey-light/70 border-t border-grey-light">
-                    <p className="text-[10px] text-grey-dark italic">
+                    <p className="text-[10px] text-grey-dark">
                       * Yakıt verileri kullanıma ve yol şartlarına bağlı olarak değişkenlik gösterebilir.
                     </p>
                   </div>

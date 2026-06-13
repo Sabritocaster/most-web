@@ -75,10 +75,10 @@ export default function Navbar() {
           <button
             id="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-grey-light transition-colors"
+            className="md:hidden p-2 text-black hover:text-[#001AFF] active:text-[#001AFF] transition-colors duration-300"
           >
             <svg
-              className="w-6 h-6 text-black"
+              className="w-6 h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -88,14 +88,14 @@ export default function Navbar() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
+                  d="M6 6l12 12M6 18L18 6"
                 />
               ) : (
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
+                  d="M4 8h16M4 16h16"
                 />
               )}
             </svg>
@@ -104,26 +104,26 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden animate-slide-down pb-4 border-t border-grey-light bg-white">
-            <div className="flex flex-col gap-3 pt-4 px-2">
+          <div className="md:hidden animate-slide-down pb-6 border-t border-grey-light bg-white">
+            <div className="flex flex-col gap-6 pt-6 px-4">
               <a
                 href="#hizmetlerimiz"
                 onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
-                className="text-black text-sm font-extrabold px-3 py-2 rounded-lg hover:bg-grey-light transition-colors"
+                className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
               >
                 Hizmetlerimiz
               </a>
               <a
                 href="#arac-analizi"
                 onClick={(e) => scrollToSection(e, "arac-analizi")}
-                className="text-black text-sm font-extrabold px-3 py-2 rounded-lg hover:bg-grey-light transition-colors"
+                className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
               >
                 Araç Analizi
               </a>
               <a
                 href="#iletisim"
                 onClick={(e) => scrollToSection(e, "iletisim")}
-                className="text-black text-sm font-extrabold px-3 py-2 rounded-lg hover:bg-grey-light transition-colors"
+                className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
               >
                 İletişime Geçin
               </a>

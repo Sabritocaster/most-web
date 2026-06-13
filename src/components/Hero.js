@@ -28,7 +28,7 @@ export default function Hero() {
               <br />
               <span className="text-[#001AFF]">Akıllı Çözümler</span>
             </h1>
-            <p className="text-base sm:text-lg text-black mb-12 max-w-lg leading-relaxed">
+            <p className="text-base sm:text-lg text-black mb-12 max-w-lg leading-relaxed font-medium lg:font-normal">
               Profesyonel chip yazılım çözümleri, DPF temizliği ve enjektör bakımı ile aracınızın performansını, verimliliğini ve motor ömrünü en üst seviyeye çıkarıyoruz.
             </p>
             <a
