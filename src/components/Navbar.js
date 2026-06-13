@@ -92,31 +92,37 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Drawer */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white ${
-            mobileMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+          className={`fixed top-18 left-0 right-0 bottom-0 bg-white z-40 transition-transform duration-500 ease-out ${
+            mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col gap-6 pt-6 pb-6 px-4">
+          <div className="flex flex-col gap-10 items-center justify-center h-full pb-24 px-8">
             <a
               href="#hizmetlerimiz"
               onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
-              className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
+              className={`text-black text-3xl font-extrabold transition-all duration-500 delay-100 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+                mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              }`}
             >
               Hizmetlerimiz
             </a>
             <a
               href="#arac-analizi"
               onClick={(e) => scrollToSection(e, "arac-analizi")}
-              className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
+              className={`text-black text-3xl font-extrabold transition-all duration-500 delay-200 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+                mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              }`}
             >
               Araç Analizi
             </a>
             <a
               href="#iletisim"
               onClick={(e) => scrollToSection(e, "iletisim")}
-              className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
+              className={`text-black text-3xl font-extrabold transition-all duration-500 delay-300 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+                mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              }`}
             >
               İletişime Geçin
             </a>
