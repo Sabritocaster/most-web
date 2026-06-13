@@ -98,12 +98,12 @@ export default function Navbar() {
             mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col gap-10 items-center justify-center h-full pb-24 px-8">
+          <div className="flex flex-col gap-10 items-start justify-start h-full pt-16 px-4">
             <a
               href="#hizmetlerimiz"
               onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
-              className={`text-black text-3xl font-extrabold transition-all duration-500 delay-100 transform hover:text-[#001AFF] active:text-[#001AFF] ${
-                mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              className={`text-black text-3xl font-extrabold transition-transform duration-500 delay-100 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+                mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
               Hizmetlerimiz
@@ -111,8 +111,8 @@ export default function Navbar() {
             <a
               href="#arac-analizi"
               onClick={(e) => scrollToSection(e, "arac-analizi")}
-              className={`text-black text-3xl font-extrabold transition-all duration-500 delay-200 transform hover:text-[#001AFF] active:text-[#001AFF] ${
-                mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              className={`text-black text-3xl font-extrabold transition-transform duration-500 delay-200 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+                mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
               Araç Analizi
@@ -120,8 +120,8 @@ export default function Navbar() {
             <a
               href="#iletisim"
               onClick={(e) => scrollToSection(e, "iletisim")}
-              className={`text-black text-3xl font-extrabold transition-all duration-500 delay-300 transform hover:text-[#001AFF] active:text-[#001AFF] ${
-                mobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+              className={`text-black text-3xl font-extrabold transition-transform duration-500 delay-300 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+                mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
               İletişime Geçin
