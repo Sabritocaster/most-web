@@ -109,7 +109,7 @@ export default function Contact() {
                   </div>
                 </div>
                 
-                <div className="text-[11px] text-[#C2C2C2]/50 font-medium tracking-wide h-[52px] flex items-center mt-8">
+                <div className="hidden lg:flex text-[11px] text-[#C2C2C2]/50 font-medium tracking-wide h-[52px] items-center mt-8">
                   *Doldurulması Gerekli Alan
                 </div>
               </div>
@@ -245,8 +245,11 @@ export default function Contact() {
                 </div>
 
                 {/* KVKK & Submit Button */}
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mt-8 h-[52px]">
-                  <div className="flex items-center gap-3">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mt-8 sm:h-[52px]">
+                  <div className="text-[11px] lg:hidden text-[#C2C2C2]/50 font-medium tracking-wide">
+                    *Doldurulması Gerekli Alan
+                  </div>
+                  <div className="flex items-center gap-3 w-full sm:w-auto">
                     <input
                       type="checkbox"
                       id="kvkk"

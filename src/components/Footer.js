@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="flex gap-8 text-xs font-bold tracking-wider">
+          <div className="flex flex-wrap gap-x-8 gap-y-4 text-xs font-bold tracking-wider justify-start md:justify-end">
             <a
               href="#hizmetlerimiz"
               onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
@@ -84,7 +84,7 @@ export default function Footer() {
       <div className="bg-black/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
-            <div className="text-grey-dark text-xs font-semibold">
+            <div className="text-grey-dark text-xs font-semibold text-center sm:text-left">
               <p>75. Yıl Mahallesi / Emko Sanayi Sitesi / Edirne Sokak / No:28</p>
               <p>Odunpazarı / Eskişehir</p>
             </div>
