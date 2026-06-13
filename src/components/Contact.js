@@ -90,32 +90,28 @@ export default function Contact() {
 
         {/* Card */}
         <div className="bg-[#231F20] rounded-[32px] p-8 md:p-12 lg:p-16 text-white">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            
-            {/* Left Column: Contact details & Required notice */}
-            <div className="lg:col-span-4 flex flex-col justify-between min-h-[250px]">
-              <div>
-                <h3 className="text-3xl font-extrabold text-white mb-6 tracking-tight">
-                  İletişim Bilgileri
-                </h3>
-                <div className="flex flex-col gap-3 text-[#C2C2C2] text-sm font-semibold">
-                  <a href="tel:+905519662291" className="hover:text-white transition-colors duration-300">
-                    +90 (551) 966 22 91
-                  </a>
-                  <a href="mailto:info@mostsolution.com" className="hover:text-white transition-colors duration-300">
-                    info@mostsolution.com
-                  </a>
+          <form onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+              
+              {/* Left Column: Contact details */}
+              <div className="lg:col-span-4 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-3xl font-extrabold text-white mb-6 tracking-tight">
+                    İletişim Bilgileri
+                  </h3>
+                  <div className="flex flex-col gap-3 text-[#C2C2C2] text-sm font-semibold">
+                    <a href="tel:+905519662291" className="hover:text-white transition-colors duration-300">
+                      +90 (551) 966 22 91
+                    </a>
+                    <a href="mailto:info@mostsolution.com" className="hover:text-white transition-colors duration-300">
+                      info@mostsolution.com
+                    </a>
+                  </div>
                 </div>
               </div>
-              
-              <div className="mt-8 text-[11px] text-[#C2C2C2]/50 font-medium tracking-wide">
-                *Doldurulması Gerekli Alan
-              </div>
-            </div>
 
-            {/* Right Column: Form */}
-            <div className="lg:col-span-8">
-              <form onSubmit={handleSubmit} className="space-y-10">
+              {/* Right Column: Form */}
+              <div className="lg:col-span-8">
                 {/* 3-Column Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10">
                   {/* İsim */}
@@ -212,7 +208,7 @@ export default function Contact() {
                   </div>
 
                   {/* Başlık */}
-                  <div>
+                  <div className="md:col-span-3">
                     <label htmlFor="subject" className="block text-xs font-semibold text-[#C2C2C2] mb-1.5">
                       Başlık*
                     </label>
@@ -229,7 +225,7 @@ export default function Contact() {
                 </div>
 
                 {/* Mesaj */}
-                <div>
+                <div className="mt-10">
                   <label htmlFor="message" className="block text-xs font-semibold text-[#C2C2C2] mb-2">
                     Mesaj*
                   </label>
@@ -243,40 +239,44 @@ export default function Contact() {
                     className="w-full bg-[#EAEAEA] text-black text-sm p-4 rounded-[16px] focus:outline-none focus:ring-2 focus:ring-white/30 transition-all font-semibold resize-none"
                   />
                 </div>
-
-                {/* KVKK & Submit Button */}
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 pt-4 border-t border-[#C2C2C2]/10">
-                  <div className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      id="kvkk"
-                      name="kvkk"
-                      checked={formData.kvkk}
-                      onChange={handleChange}
-                      className="w-4 h-4 accent-[#001AFF] bg-black border-black rounded cursor-pointer"
-                    />
-                    <label htmlFor="kvkk" className="text-xs text-[#C2C2C2] cursor-pointer leading-relaxed hover:text-white transition-colors">
-                      KVKK Aydınlatma Metnini okudum, anladım ve kabul ediyorum. *
-                    </label>
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`w-full sm:w-auto px-10 py-4 bg-[#EAEAEA] text-black text-sm font-bold rounded-full transition-all duration-300 ${
-                      isSubmitting
-                        ? "opacity-75 cursor-not-allowed"
-                        : "hover:bg-[#001AFF] hover:text-white"
-                    }`}
-                  >
-                    {isSubmitting ? "Gönderiliyor..." : "Mesajı Gönder"}
-                  </button>
-                </div>
-
-              </form>
+              </div>
             </div>
-            
-          </div>
+
+            {/* Bottom Row: Aligned Horizontally & No Border Line */}
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-12">
+              <div className="text-[11px] text-[#C2C2C2]/50 font-medium tracking-wide">
+                *Doldurulması Gerekli Alan
+              </div>
+              
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    id="kvkk"
+                    name="kvkk"
+                    checked={formData.kvkk}
+                    onChange={handleChange}
+                    className="w-4 h-4 accent-[#001AFF] bg-black border-black rounded cursor-pointer"
+                  />
+                  <label htmlFor="kvkk" className="text-xs text-[#C2C2C2] cursor-pointer leading-relaxed hover:text-white transition-colors">
+                    KVKK Aydınlatma Metnini okudum, anladım ve kabul ediyorum. *
+                  </label>
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full sm:w-auto px-10 py-4 bg-[#EAEAEA] text-black text-sm font-bold rounded-full transition-all duration-300 ${
+                    isSubmitting
+                      ? "opacity-75 cursor-not-allowed"
+                      : "hover:bg-[#001AFF] hover:text-white"
+                  }`}
+                >
+                  {isSubmitting ? "Gönderiliyor..." : "Mesajı Gönder"}
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
 
       </div>
