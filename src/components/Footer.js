@@ -10,21 +10,6 @@ export default function Footer() {
   };
 
   return (
-<<<<<<< HEAD
-    <footer className="bg-gray-900 border-t border-gray-800">
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col lg:flex-row justify-between gap-10">
-          {/* Logo & Info */}
-          <div className="flex flex-col gap-4">
-            <span
-              className="text-xl font-black tracking-wider text-white"
-              style={{ letterSpacing: "0.15em" }}
-            >
-              MOST
-            </span>
-            <div className="text-gray-500 text-sm space-y-1">
-=======
     <footer className="bg-[#231F20] text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -45,7 +30,6 @@ export default function Footer() {
               </svg>
             </a>
             <div className="text-grey-dark text-xs space-y-1 font-semibold">
->>>>>>> master
               <p>www.mostsolution.com</p>
               <p>info@mostsolution.com</p>
               <p>+90 (551) 966 22 91</p>
@@ -53,41 +37,25 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-<<<<<<< HEAD
-          <div className="flex gap-8 text-sm">
-            <a
-              href="#hizmetlerimiz"
-              onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-=======
           <div className="flex gap-8 text-xs font-bold tracking-wider">
             <a
               href="#hizmetlerimiz"
               onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
               className="text-grey-dark hover:text-white transition-colors duration-300"
->>>>>>> master
             >
               Hizmetlerimiz
             </a>
             <a
               href="#arac-analizi"
               onClick={(e) => scrollToSection(e, "arac-analizi")}
-<<<<<<< HEAD
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-=======
               className="text-grey-dark hover:text-white transition-colors duration-300"
->>>>>>> master
             >
               Araç Analizi
             </a>
             <a
               href="#iletisim"
               onClick={(e) => scrollToSection(e, "iletisim")}
-<<<<<<< HEAD
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-=======
               className="text-grey-dark hover:text-white transition-colors duration-300"
->>>>>>> master
             >
               İletişim
             </a>
@@ -96,18 +64,6 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-<<<<<<< HEAD
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="text-gray-600 text-xs">
-              <p>
-                75. Yıl Mahallesi / Emko Sanayi Sitesi / Edirne Sokak /No:28
-              </p>
-              <p>Odunpazarı / Eskişehir</p>
-            </div>
-            <div className="flex gap-6 text-gray-600 text-xs">
-=======
       <div className="bg-black/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
@@ -116,7 +72,6 @@ export default function Footer() {
               <p>Odunpazarı / Eskişehir</p>
             </div>
             <div className="flex gap-6 text-grey-dark text-xs font-semibold">
->>>>>>> master
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -134,13 +89,8 @@ export default function Footer() {
                 LinkedIn
               </a>
             </div>
-<<<<<<< HEAD
-            <p className="text-gray-600 text-xs">
-              © 2026 Most Chip Yazılım. Bütün Hakları Saklıdır.
-=======
             <p className="text-grey-dark text-xs font-semibold">
               © 2026 most. Bütün Hakları Saklıdır.
->>>>>>> master
             </p>
           </div>
         </div>
