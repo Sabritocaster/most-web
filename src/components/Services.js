@@ -55,7 +55,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={service.id}
-              className={`bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl w-full lg:w-[85%] ${
+              className={`bg-white rounded-3xl p-6 sm:p-8 lg:p-10 w-full lg:w-[85%] ${
                 service.imagePosition === "left" ? "mr-auto" : "ml-auto"
               }`}
             >

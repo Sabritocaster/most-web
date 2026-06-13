@@ -89,7 +89,7 @@ export default function Contact() {
         </div>
 
         {/* Card */}
-        <div className="bg-[#231F20] rounded-[32px] p-8 md:p-12 lg:p-16 text-white shadow-2xl">
+        <div className="bg-[#231F20] rounded-[32px] p-8 md:p-12 lg:p-16 text-white">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             
             {/* Left Column: Contact details & Required notice */}

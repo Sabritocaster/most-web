@@ -48,11 +48,9 @@ export default function Hero() {
                 alt="Araç Motor Parçası"
                 width={600}
                 height={500}
-                className="w-full h-auto object-contain drop-shadow-2xl"
+                className="w-full h-auto object-contain"
                 priority
               />
-              {/* Decorative glow */}
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-[#001AFF]/10 rounded-full blur-3xl" />
             </div>
           </div>
         </div>

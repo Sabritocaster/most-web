@@ -146,7 +146,7 @@ export default function VehicleAnalysis() {
         </div>
 
         {/* Filter Bar & Interactive Display */}
-        <div className="bg-grey-medium rounded-3xl p-6 sm:p-10 border border-grey-medium shadow-xl shadow-grey-medium/50">
+        <div className="bg-grey-medium rounded-3xl p-6 sm:p-10 border border-grey-medium">
           {/* Filters Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-10 items-end">
             <div className="flex flex-col gap-2">
@@ -241,8 +241,6 @@ export default function VehicleAnalysis() {
                   height={330}
                   className="w-full h-auto object-contain p-8"
                 />
-                {/* Ground reflection shadow */}
-                <div className="w-4/5 h-6 bg-black/10 rounded-full blur-xl mx-auto -mt-4" />
               </div>
             </div>
 
