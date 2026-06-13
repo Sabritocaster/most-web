@@ -19,6 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="tr">
       <head>
+<<<<<<< HEAD
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -29,6 +30,9 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+=======
+        <link rel="stylesheet" href="https://use.typekit.net/uvy4wep.css" />
+>>>>>>> master
       </head>
       <body className="antialiased">{children}</body>
     </html>
