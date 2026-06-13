@@ -150,6 +150,23 @@ export default function VehicleAnalysis() {
     }
   };
 
+  const getCarImage = () => {
+    switch (selectedBrand) {
+      case "BMW":
+        return "/car-bmw.png";
+      case "Volkswagen":
+        return "/car-vw.png";
+      case "Audi":
+        return "/car-audi.png";
+      case "Renault":
+        return "/car-renault.png";
+      case "Fiat":
+        return "/car-fiat.png";
+      default:
+        return "/car-suv.png";
+    }
+  };
+
   // Generate lists based on current state
   const brandList = Object.keys(vehicleDb);
   const modelList = selectedBrand ? Object.keys(vehicleDb[selectedBrand] || {}) : [];
@@ -262,7 +279,7 @@ export default function VehicleAnalysis() {
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-md">
                 <Image
-                  src="/car-suv.png"
+                  src={getCarImage()}
                   alt="Araç Görseli"
                   width={500}
                   height={330}
