@@ -184,7 +184,7 @@ export default function VehicleAnalysis() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black leading-tight max-w-md tracking-tight">
             Araç Analizi
           </h2>
-          <p className="text-black text-body-lg max-w-lg">
+          <p className="text-black text-body-lg max-w-lg font-medium lg:font-normal">
             Aracınızın fabrika çıkış verileriyle Most Stage 1 yazılımının sunduğu optimize değerleri yan yana inceleyin. Güç artışını ve verimlilik farkını teknik verilerle analiz edin.
           </p>
         </div>
