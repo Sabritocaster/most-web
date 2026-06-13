@@ -77,59 +77,51 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 text-black hover:text-[#001AFF] active:text-[#001AFF] transition-colors duration-300"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 6l12 12M6 18L18 6"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 8h16M4 16h16"
-                />
-              )}
-            </svg>
+            <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.5 relative">
+              <span
+                className={`h-0.5 bg-current transition-all duration-300 rounded-full ${
+                  mobileMenuOpen ? "w-6 absolute rotate-45" : "w-6"
+                }`}
+              />
+              <span
+                className={`h-0.5 bg-current transition-all duration-300 rounded-full ${
+                  mobileMenuOpen ? "w-6 absolute -rotate-45" : "w-6"
+                }`}
+              />
+            </div>
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden animate-slide-down pb-6 border-t border-grey-light bg-white">
-            <div className="flex flex-col gap-6 pt-6 px-4">
-              <a
-                href="#hizmetlerimiz"
-                onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
-                className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
-              >
-                Hizmetlerimiz
-              </a>
-              <a
-                href="#arac-analizi"
-                onClick={(e) => scrollToSection(e, "arac-analizi")}
-                className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
-              >
-                Araç Analizi
-              </a>
-              <a
-                href="#iletisim"
-                onClick={(e) => scrollToSection(e, "iletisim")}
-                className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
-              >
-                İletişime Geçin
-              </a>
-            </div>
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white ${
+            mobileMenuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="flex flex-col gap-6 pt-6 pb-6 px-4">
+            <a
+              href="#hizmetlerimiz"
+              onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
+              className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
+            >
+              Hizmetlerimiz
+            </a>
+            <a
+              href="#arac-analizi"
+              onClick={(e) => scrollToSection(e, "arac-analizi")}
+              className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
+            >
+              Araç Analizi
+            </a>
+            <a
+              href="#iletisim"
+              onClick={(e) => scrollToSection(e, "iletisim")}
+              className="text-black text-sm font-extrabold transition-colors duration-300 hover:text-[#001AFF] active:text-[#001AFF]"
+            >
+              İletişime Geçin
+            </a>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
