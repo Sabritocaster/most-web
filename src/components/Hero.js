@@ -14,15 +14,15 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center bg-white overflow-hidden"
+      className="relative min-h-screen lg:flex lg:items-center bg-white overflow-hidden pt-28 pb-24 lg:py-0"
     >
       {/* Background subtle gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#F4F4F4]/30" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-0 lg:pt-20">
           {/* Left Content */}
-          <div className="animate-fade-in-left">
+          <div className="animate-fade-in-left order-2 lg:order-1">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black leading-[1.2] mb-6 tracking-tight">
               Aracınız için
               <br />
@@ -41,7 +41,7 @@ export default function Hero() {
           </div>
 
           {/* Right Image */}
-          <div className="animate-fade-in-right flex justify-center lg:justify-end">
+          <div className="animate-fade-in-right flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative w-full max-w-lg">
               <Image
                 src="/engine-hero.png"
