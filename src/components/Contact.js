@@ -93,7 +93,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               
-              {/* Left Column: Contact details */}
+              {/* Left Column: Contact details & Required notice */}
               <div className="lg:col-span-4 flex flex-col justify-between">
                 <div>
                   <h3 className="text-3xl font-extrabold text-white mb-6 tracking-tight">
@@ -107,6 +107,10 @@ export default function Contact() {
                       info@mostsolution.com
                     </a>
                   </div>
+                </div>
+                
+                <div className="text-[11px] text-[#C2C2C2]/50 font-medium tracking-wide h-[52px] flex items-center mt-8">
+                  *Doldurulması Gerekli Alan
                 </div>
               </div>
 
@@ -239,41 +243,35 @@ export default function Contact() {
                     className="w-full bg-[#EAEAEA] text-black text-sm p-4 rounded-[16px] focus:outline-none focus:ring-2 focus:ring-white/30 transition-all font-semibold resize-none"
                   />
                 </div>
-              </div>
-            </div>
 
-            {/* Bottom Row: Aligned Horizontally & No Border Line */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-6 mt-12">
-              <div className="text-[11px] text-[#C2C2C2]/50 font-medium tracking-wide">
-                *Doldurulması Gerekli Alan
-              </div>
-              
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="checkbox"
-                    id="kvkk"
-                    name="kvkk"
-                    checked={formData.kvkk}
-                    onChange={handleChange}
-                    className="w-4 h-4 accent-[#001AFF] bg-black border-black rounded cursor-pointer"
-                  />
-                  <label htmlFor="kvkk" className="text-xs text-[#C2C2C2] cursor-pointer leading-relaxed hover:text-white transition-colors">
-                    KVKK Aydınlatma Metnini okudum, anladım ve kabul ediyorum. *
-                  </label>
+                {/* KVKK & Submit Button */}
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mt-8 h-[52px]">
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="checkbox"
+                      id="kvkk"
+                      name="kvkk"
+                      checked={formData.kvkk}
+                      onChange={handleChange}
+                      className="w-4 h-4 accent-[#001AFF] bg-black border-black rounded cursor-pointer"
+                    />
+                    <label htmlFor="kvkk" className="text-xs text-[#C2C2C2] cursor-pointer leading-relaxed hover:text-white transition-colors">
+                      KVKK Aydınlatma Metnini okudum, anladım ve kabul ediyorum. *
+                    </label>
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full sm:w-auto px-10 py-4 bg-[#EAEAEA] text-black text-sm font-bold rounded-full transition-all duration-300 ${
+                      isSubmitting
+                        ? "opacity-75 cursor-not-allowed"
+                        : "hover:bg-[#001AFF] hover:text-white"
+                    }`}
+                  >
+                    {isSubmitting ? "Gönderiliyor..." : "Mesajı Gönder"}
+                  </button>
                 </div>
-                
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full sm:w-auto px-10 py-4 bg-[#EAEAEA] text-black text-sm font-bold rounded-full transition-all duration-300 ${
-                    isSubmitting
-                      ? "opacity-75 cursor-not-allowed"
-                      : "hover:bg-[#001AFF] hover:text-white"
-                  }`}
-                >
-                  {isSubmitting ? "Gönderiliyor..." : "Mesajı Gönder"}
-                </button>
               </div>
             </div>
           </form>
