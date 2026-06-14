@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-0 lg:pt-20">
           {/* Left Content */}
-          <div className="animate-fade-in-left order-2 lg:order-1">
+          <div className="animate-fade-in-up order-2 lg:order-1">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black leading-[1.2] mb-10 tracking-tight">
               Aracınız için
               <br />
@@ -41,7 +41,7 @@ export default function Hero() {
           </div>
 
           {/* Right Image */}
-          <div className="animate-fade-in-right flex justify-center lg:justify-end order-1 lg:order-2">
+          <div className="animate-fade-in-up flex justify-center lg:justify-end order-1 lg:order-2">
             <div className="relative w-full max-w-lg">
               <Image
                 src="/engine-hero.png"
