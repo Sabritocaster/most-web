@@ -176,7 +176,7 @@ export default function VehicleAnalysis() {
   return (
     <section
       id="arac-analizi"
-      className="relative bg-white pb-32 sm:pb-40 pt-28 sm:pt-36"
+      className="relative bg-white pb-32 sm:pb-40 pt-20 sm:pt-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
