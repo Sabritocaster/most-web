@@ -75,7 +75,7 @@ export default function Navbar() {
           <button
             id="mobile-menu-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-black hover:text-[#001AFF] active:text-[#001AFF] transition-colors duration-300"
+            className="md:hidden p-2 text-black transition-colors duration-300"
           >
             <div className="w-6 h-6 flex flex-col justify-center items-center gap-1.5 relative">
               <span
@@ -98,11 +98,11 @@ export default function Navbar() {
             mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col gap-10 items-start justify-start h-full pt-16 px-4">
+          <div className="flex flex-col gap-2 items-stretch justify-start h-full pt-16 px-4">
             <a
               href="#hizmetlerimiz"
               onClick={(e) => scrollToSection(e, "hizmetlerimiz")}
-              className={`text-black text-3xl font-extrabold transition-transform duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+              className={`w-full block py-4 text-black text-3xl font-extrabold transition-all duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
                 mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
@@ -111,7 +111,7 @@ export default function Navbar() {
             <a
               href="#arac-analizi"
               onClick={(e) => scrollToSection(e, "arac-analizi")}
-              className={`text-black text-3xl font-extrabold transition-transform duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+              className={`w-full block py-4 text-black text-3xl font-extrabold transition-all duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
                 mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
@@ -120,7 +120,7 @@ export default function Navbar() {
             <a
               href="#iletisim"
               onClick={(e) => scrollToSection(e, "iletisim")}
-              className={`text-black text-3xl font-extrabold transition-transform duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
+              className={`w-full block py-4 text-black text-3xl font-extrabold transition-all duration-500 transform hover:text-[#001AFF] active:text-[#001AFF] ${
                 mobileMenuOpen ? "translate-x-0" : "translate-x-8"
               }`}
             >
